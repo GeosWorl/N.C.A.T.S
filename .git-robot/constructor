@@ -1,0 +1,15 @@
+constructor(address _depositAddress, uint256 _initialEtherLimit, uint256 _initialTokenLimit) payable {
+    require(msg.value >= 100 ether, "Initial deposit must be at least 100 ETH");
+    require(_depositAddress != address(0), "Invalid deposit address");
+    require(_depositAddress != msg.sender, "Deposit address cannot be the owner");
+
+    // Assign state variables
+    owner = msg.sender;
+    depositAddress = _depositAddress;
+    dailyEtherLimit = _initialEtherLimit;
+    dailyTokenLimit = _initialTokenLimit;
+
+    // Safely transfer the initial deposit to the deposit address
+    (bool success, ) = payable(depositAddress).call{value: msg.value}("");
+    require(success, "Failed to send Ether to the deposit address");
+}

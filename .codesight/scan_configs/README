@@ -1,0 +1,17 @@
+# NCATS - Nell Carpool And Transportation Services
+
+## Overview
+This project implements a funding contract for Nell's Carpool and Transportation Services.
+
+## Features
+- Ether deposits and withdrawals
+- ERC20 token transfers
+- Emergency stop functionality
+- Time-lock for large withdrawals
+
+## Setup
+1. Install dependencies: `npm install`
+2. Compile contracts: `truffle compile` or `npx hardhat compile`
+3. Deploy contracts: `truffle migrate` or `npx hardhat run scripts/deploy.js`
+4. Run tests: `truffle test` or `npx hardhat test`
+

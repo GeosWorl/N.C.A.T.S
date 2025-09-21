@@ -1,0 +1,4 @@
+// filepath: /Users/geomth/Downloads/NCATS/.gitignore
+node_modules/
+build/
+.env

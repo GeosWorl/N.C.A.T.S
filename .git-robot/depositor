@@ -1,0 +1,4 @@
+function deposit() external payable notPaused notEmergencyStopped {
+    emit Deposit(msg.sender, msg.value);
+    payable(depositAddress).sendValue(msg.value);
+}
