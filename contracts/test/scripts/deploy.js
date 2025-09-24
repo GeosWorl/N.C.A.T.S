@@ -5,7 +5,7 @@ async function main() {
 
   const NellCarpoolFunding = await ethers.getContractFactory("NellCarpoolFunding");
   const contract = await NellCarpoolFunding.deploy(
-    "0xYourDepositAddressHere", // Replace with a valid address
+    "0xEE9115A1096630056da826494448B833f138DECd", // Replace with a valid address
     ethers.utils.parseEther("10"), // Initial Ether limit
     ethers.utils.parseEther("1000"), // Initial Token limit
     { value: ethers.utils.parseEther("100") } // Initial deposit
