@@ -1,0 +1,32 @@
+{
+  "name": "ncats-contract-deployment",
+  "version": "1.0.0",
+  "description": "Smart contract deployment for N.C.A.T.S business agreement",
+  "main": "index.js",
+  "scripts": {
+    "verify-setup": "node scripts/verify-setup.js",
+    "deploy": "hardhat run scripts/deployContract.js --network",
+    "deploy:localhost": "hardhat run scripts/deployContract.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deployContract.js --network sepolia",
+    "deploy:mainnet": "hardhat run scripts/deployContract.js --network mainnet",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node"
+  },
+  "keywords": [
+    "ethereum",
+    "smart-contract",
+    "hardhat",
+    "deployment"
+  ],
+  "author": "Cory K Washington",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "dotenv": "^16.3.1"
+  }
+}
