@@ -57,7 +57,7 @@ cp .env.example .env
 # Edit .env with Flask configuration
 
 # Initialize database
-python3 -c "from app import app, db; app.app_context().push(); db.create_all()"
+python3 init_db.py
 
 # Run the application
 python app.py

@@ -52,10 +52,16 @@ Optional configuration:
 3. Initialize the database:
 
 ```bash
-python -c "from app import app, db; app.app_context().push(); db.create_all()"
+python3 init_db.py
 ```
 
-Or use Flask-Migrate:
+Or manually:
+
+```bash
+python3 -c "from app import app, db; app.app_context().push(); db.create_all()"
+```
+
+Or use Flask-Migrate for production:
 
 ```bash
 flask db init
