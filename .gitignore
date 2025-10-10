@@ -45,3 +45,22 @@ deployments/*.json
 .cache/
 tmp/
 temp/
+
+# Flask / Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+instance/
+.pytest_cache/
+.coverage
+htmlcov/
+uploads/
+*.db
+*.sqlite3
+migrations/versions/
