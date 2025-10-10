@@ -25,7 +25,14 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your_fallback_secret_key')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/carpool.db')
+
+# Database configuration - handle relative paths for SQLite
+database_url = os.getenv('DATABASE_URL')
+if not database_url or database_url.startswith('sqlite:///instance/'):
+    # Use absolute path for SQLite if relative path is specified
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'instance', 'carpool.db')
+    database_url = f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['SESSION_COOKIE_SECURE'] = os.getenv('SESSION_COOKIE_SECURE', 'False') == 'True'
@@ -108,10 +115,6 @@ class ResetPasswordForm(FlaskForm):
     password = PasswordField('New Password', validators=[DataRequired(), Length(min=6)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset Password')
-
-# Create database tables before the first request
-with app.app_context():
-    db.create_all()
 
 # Helper function to check if user is logged in
 def is_logged_in():
