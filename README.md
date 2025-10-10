@@ -8,6 +8,8 @@ This repository contains the smart contract infrastructure for N.C.A.T.S (Nell's
 
 ## Quick Start
 
+**New to this?** See the [Quick Start Guide](QUICKSTART.md) for a 5-minute setup!
+
 For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ### Installation
@@ -38,6 +40,7 @@ npm run deploy:mainnet
 
 ## Documentation
 
+- [Quick Start Guide](QUICKSTART.md) - 5-minute setup guide
 - [Deployment Guide](DEPLOYMENT.md) - Complete deployment instructions
 - [Contract Documentation](contracts/ContractAgreement.sol) - Smart contract details
 

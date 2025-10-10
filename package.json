@@ -4,6 +4,7 @@
   "description": "Smart contract deployment for N.C.A.T.S business agreement",
   "main": "index.js",
   "scripts": {
+    "verify-setup": "node scripts/verify-setup.js",
     "deploy": "hardhat run scripts/deployContract.js --network",
     "deploy:localhost": "hardhat run scripts/deployContract.js --network localhost",
     "deploy:sepolia": "hardhat run scripts/deployContract.js --network sepolia",
