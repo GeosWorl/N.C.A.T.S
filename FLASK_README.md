@@ -41,6 +41,13 @@ python run.py
 
 The application will start on `http://localhost:5000`
 
+By default, debug mode is enabled for development. To disable it:
+
+```bash
+export FLASK_DEBUG=0
+python run.py
+```
+
 Alternatively, you can use Flask's built-in command:
 
 ```bash
@@ -57,6 +64,8 @@ For production deployment, use a production-grade WSGI server like Gunicorn:
 pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:5000 run:app
 ```
+
+**Important Security Note**: Never run Flask with debug mode enabled in production. Always set `FLASK_DEBUG=0` or use a production WSGI server like Gunicorn.
 
 ## Application Structure
 
