@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N.C.A.T.S - Nell's Carpool and Transportation Services</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Welcome to N.C.A.T.S</h1>
-            <p class="subtitle">Nell's Carpool and Transportation Services</p>
-        </header>
-        
-        <main>
-            <div class="card">
-                <h2>Smart Contract Integration</h2>
-                <p>Transportation Company with Blockchain-Based Business Agreements</p>
-            </div>
-            
-            <div class="card">
-                <h3>Features</h3>
-                <ul>
-                    <li>Blockchain-based business agreements</li>
-                    <li>Smart contract infrastructure</li>
-                    <li>Secure borrower and lender transactions</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="/api/welcome">API Welcome Endpoint</a></li>
-                    <li><a href="https://github.com/GeosWorl/N.C.A.T.S" target="_blank">GitHub Repository</a></li>
-                </ul>
-            </div>
-        </main>
-        
-        <footer>
-            <p>&copy; 2024 N.C.A.T.S - All Rights Reserved</p>
-        </footer>
+{% extends "base.html" %}
+
+{% block title %}N.C.A.T.S - Nell's Carpool and Transportation Services{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Welcome to N.C.A.T.S</h1>
+    <p class="subtitle">Nell's Carpool and Transportation Services</p>
+</header>
+
+<main>
+    <div class="card">
+        <h2>Smart Contract Integration</h2>
+        <p>Transportation Company with Blockchain-Based Business Agreements</p>
     </div>
-</body>
-</html>
+    
+    <div class="card">
+        <h3>Features</h3>
+        <ul>
+            <li>Blockchain-based business agreements</li>
+            <li>Smart contract infrastructure</li>
+            <li>Secure borrower and lender transactions</li>
+            <li>User authentication and authorization</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="/api/welcome">API Welcome Endpoint</a></li>
+            {% if session.get('username') %}
+                <li><a href="{{ url_for('dashboard') }}">Go to Dashboard</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Login to Access Dashboard</a></li>
+                <li><a href="{{ url_for('auth.register') }}">Register New Account</a></li>
+            {% endif %}
+            <li><a href="https://github.com/GeosWorl/N.C.A.T.S" target="_blank">GitHub Repository</a></li>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 N.C.A.T.S - All Rights Reserved</p>
+</footer>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - N.C.A.T.S{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Dashboard</h1>
+    <p class="subtitle">Welcome, {{ username }}!</p>
+</header>
+
+<main>
+    <div class="card">
+        <h2>Protected Area</h2>
+        <p>This is a protected page that requires authentication to access. You have successfully logged in!</p>
+    </div>
+    
+    <div class="card">
+        <h3>Your Account</h3>
+        <ul>
+            <li>Username: <strong>{{ username }}</strong></li>
+            <li>Status: <strong style="color: #28a745;">Authenticated</strong></li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Available Features</h3>
+        <ul>
+            <li>Access to transportation services</li>
+            <li>View smart contract agreements</li>
+            <li>Manage carpool bookings</li>
+            <li>Track transportation history</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h3>Quick Actions</h3>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Go to Home</a></li>
+            <li><a href="{{ url_for('api_welcome') }}">View API Endpoint</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+        </ul>
+    </div>
+</main>
+{% endblock %}
